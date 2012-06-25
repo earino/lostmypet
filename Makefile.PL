@@ -19,6 +19,7 @@ WriteMakefile(
         'Data::Dump' => 0,
 
 	'Dancer::Plugin::Auth::Twitter' => '0.02',
+        'Dancer::Plugin::Mongo' => '0.03',
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'dancer_bootstrap_fontawesome_template-*' },

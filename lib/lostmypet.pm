@@ -5,6 +5,7 @@ use warnings;
 use Cwd;
 use Sys::Hostname;
 use Data::Dump qw/dump/;
+use Dancer::Plugin::Mongo;
 use Dancer::Plugin::Auth::Twitter;
 
 auth_twitter_init();
@@ -19,6 +20,10 @@ before sub {
 };
 
 get '/' => sub {
+    my $widget = mongo->test->test->find_one({ "potato" => 'awesome' });
+
+	print dump($widget); 
+
     template 'index';
 };
 
