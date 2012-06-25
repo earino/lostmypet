@@ -21,8 +21,14 @@ before sub {
 
 get '/' => sub {
     my $widget = mongo->test->test->find_one({ "potato" => 'awesome' });
+    my $grid = mongo->test->get_gridfs;
 
-	print dump($widget); 
+    my $fh = IO::File->new("/etc/passwd", "r");
+    $grid->insert($fh, {"filename" => "mydbfile"});
+    
+    my $file = $grid->find_one({"filename" => "mydbfile"});
+
+    print $file->slurp;
 
     template 'index';
 };
