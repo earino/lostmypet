@@ -1,0 +1,8 @@
+config.yml
+
+.*.swp
+*~
+
+public/bootstrap*
+public/fontawesome*
+sessions/*
